@@ -28,8 +28,6 @@ rc.remove([10, 11]);
 rc.remove([15, 17]);
 rc.remove([3, 19]);
 
-// Should display: [1, 5) [10, 20)
-
 test('Adding several collection lists', () => {
   expect(rc.collectionString()).toBe('[1, 3) [19, 21) ')
 });
