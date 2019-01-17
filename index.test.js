@@ -2,19 +2,19 @@ const rc = require('range_collection')
 
 rc.add([1, 5]);
 const first = rc.collectionString();
-test('Adding [1, 5]', () => {
+test('Adding [1, 5] to equal [1, 5) ', () => {
   expect(first).toBe('[1, 5) ')
 });
 
 rc.add([10, 20]);
 const second = rc.collectionString();
-test('Adding [1, 5] [10, 20]', () => {
+test('Adding [1, 5] [10, 20] to equal [1, 5) [10, 20) ', () => {
   expect(second).toBe('[1, 5) [10, 20) ')
 });
 
 rc.add([20, 20]);
 const third = rc.collectionString();
-test('Adding [1, 5] [10, 20] [20, 20]', () => {
+test('Adding [1, 5] [10, 20] [20, 20] to equal [1, 5) [10, 20) ', () => {
   expect(third).toBe('[1, 5) [10, 20) ')
 });
 
@@ -28,6 +28,6 @@ rc.remove([10, 11]);
 rc.remove([15, 17]);
 rc.remove([3, 19]);
 
-test('Adding several collection lists', () => {
+test('Adding several collection lists to equal [1, 3) [19, 21) ', () => {
   expect(rc.collectionString()).toBe('[1, 3) [19, 21) ')
 });
